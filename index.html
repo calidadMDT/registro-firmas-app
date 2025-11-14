@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Registro - [NOMBRE DE TU ORGANIZACIÓN]</title>
+    <title>Sistema de Registro - Mediservis</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,7 +13,6 @@
             <p class="subtitle">Zona horaria: Colombia (UTC-5)</p>
         </header>
 
-        <!-- === FORMULARIO PÚBLICO (VISIBLE PARA TODOS) === -->
         <form id="registroForm">
             <div class="form-group">
                 <label for="nombres">Nombres y Apellidos *</label>
@@ -50,7 +49,7 @@
             <div class="form-group">
                 <label> Firma Digital *</label>
                 <div class="signature-container">
-                    <canvas id="signaturePad" width="500" height="200"></canvas>
+                    <canvas id="signaturePad"></canvas>
                 </div>
                 <button type="button" id="clearSignature" class="btn-clear">Borrar Firma</button>
             </div>
@@ -58,32 +57,31 @@
             <button type="submit" class="btn-submit">Enviar Registro</button>
         </form>
 
-        <!-- === ACCESO ADMINISTRADOR (BOTÓN PARA DESBLOQUEAR) === -->
         <div class="admin-access">
             <button type="button" id="btnAccesoAdmin" class="btn-admin">🔒 Acceso Administrador</button>
         </div>
 
-        <!-- === PANEL DE ADMINISTRADOR (OCULTO POR DEFECTO) === -->
         <div id="panelAdmin" class="panel-admin hidden">
             <div class="password-container">
-                <input type="password" id="passwordAdmin" placeholder="Ingrese contraseña de administrador">
-                <button id="btnVerificarPassword" class="btn-verify">Desbloquear</button>
+                <input type="password" id="passwordAdmin" placeholder="Ingrese contraseña">
+                <button type="button" id="btnVerificarPassword" class="btn-verify">Desbloquear</button>
             </div>
         </div>
 
         <div id="exportSection" class="export-section hidden">
             <h2>Panel de Administración</h2>
-            <button id="exportExcel" class="btn-export">📥 DESCARGAR EXCEL CON TODOS LOS REGISTROS</button>
+            <button id="exportExcel" class="btn-export">📥 DESCARGAR EXCEL</button>
             <p id="totalRegistros" class="info-text">Total registros: 0</p>
         </div>
 
         <div id="mensaje" class="mensaje"></div>
     </div>
 
-    <!-- === LIBRERÍAS EXTERNAS (DEBEN ESTAR EN CARPETA libs/) === -->
-    <script src="libs/signature_pad.min.js"></script>
-    <script src="libs/xlsx.full.min.js"></script>
-    <!-- === ARCHIVO PRINCIPAL === -->
+    <!-- === LIBRERÍAS DESDE CDN (CORREGIDO) === -->
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
+    <!-- === TU SCRIPT (SIEMPRE AL FINAL) === -->
     <script src="app.js"></script>
 </body>
 </html>
