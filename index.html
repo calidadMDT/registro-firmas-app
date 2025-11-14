@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Registro - [NOMBRE DE TU ORGANIZACIÓN]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Formulario de Registro</h1>
+            <p class="subtitle">Zona horaria: Colombia (UTC-5)</p>
+        </header>
+
+        <!-- === FORMULARIO PÚBLICO (VISIBLE PARA TODOS) === -->
+        <form id="registroForm">
+            <div class="form-group">
+                <label for="nombres">Nombres y Apellidos *</label>
+                <input type="text" id="nombres" name="nombres" required placeholder="Ej: Juan Pérez Gómez">
+            </div>
+
+            <div class="form-group">
+                <label for="documento">Número de Documento *</label>
+                <input type="text" id="documento" name="documento" required placeholder="Ej: 1234567890">
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo Electrónico *</label>
+                <input type="email" id="correo" name="correo" required placeholder="ejemplo@correo.com">
+            </div>
+
+            <div class="form-group">
+                <label for="cargo">Cargo *</label>
+                <input type="text" id="cargo" name="cargo" required placeholder="Ej: Investigador Principal">
+            </div>
+
+            <div class="form-group">
+                <label for="area">Área *</label>
+                <select id="area" name="area" required>
+                    <option value="">-- Seleccione un área --</option>
+                    <option value="Investigación">Investigación</option>
+                    <option value="Comité de Ética">Comité de Ética</option>
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Entidad Externa">Entidad Externa</option>
+                    <option value="Directivo">Directivo</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label> Firma Digital *</label>
+                <div class="signature-container">
+                    <canvas id="signaturePad" width="500" height="200"></canvas>
+                </div>
+                <button type="button" id="clearSignature" class="btn-clear">Borrar Firma</button>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar Registro</button>
+        </form>
+
+        <!-- === ACCESO ADMINISTRADOR (BOTÓN PARA DESBLOQUEAR) === -->
+        <div class="admin-access">
+            <button id="btnAccesoAdmin" class="btn-admin">🔒 Acceso Administrador</button>
+        </div>
+
+        <!-- === PANEL DE ADMINISTRADOR (OCULTO POR DEFECTO) === -->
+        <div id="panelAdmin" class="panel-admin hidden">
+            <div class="password-container">
+                <input type="password" id="passwordAdmin" placeholder="Ingrese contraseña de administrador">
+                <button id="btnVerificarPassword" class="btn-verify">Desbloquear</button>
+            </div>
+        </div>
+
+        <div id="exportSection" class="export-section hidden">
+            <h2>Panel de Administración</h2>
+            <button id="exportExcel" class="btn-export">📥 DESCARGAR EXCEL CON TODOS LOS REGISTROS</button>
+            <p id="totalRegistros" class="info-text">Total registros: 0</p>
+        </div>
+
+        <div id="mensaje" class="mensaje"></div>
+    </div>
+
+    <!-- === LIBRERÍAS EXTERNAS (DEBEN ESTAR EN CARPETA libs/) === -->
+    <script src="libs/signature_pad.min.js"></script>
+    <script src="libs/xlsx.full.min.js"></script>
+    <!-- === ARCHIVO PRINCIPAL === -->
+    <script src="app.js"></script>
+</body>
+</html>

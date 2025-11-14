@@ -1,0 +1,250 @@
+/* RESET Y ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* FORMULARIO PÚBLICO */
+form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* FIRMA DIGITAL */
+.signature-container {
+    border: 2px dashed #3498db;
+    border-radius: 8px;
+    background: #f8f9fa;
+    margin-top: 10px;
+}
+
+canvas#signaturePad {
+    display: block;
+    width: 100% !important;
+    height: 200px !important;
+    cursor: crosshair;
+}
+
+.btn-clear {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn-clear:hover {
+    background: #c0392b;
+}
+
+/* BOTONES PRINCIPALES */
+.btn-submit, .btn-admin, .btn-verify, .btn-export {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-submit {
+    background: #27ae60;
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-submit:hover {
+    background: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
+}
+
+/* ACCESO ADMINISTRADOR */
+.admin-access {
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.btn-admin {
+    background: #95a5a6;
+    color: white;
+    font-size: 1em;
+    padding: 12px;
+}
+
+.btn-admin:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+.panel-admin {
+    background: #ecf0f1;
+    padding: 20px 30px;
+    border-top: 2px solid #3498db;
+}
+
+.password-container {
+    display: flex;
+    gap: 10px;
+}
+
+.password-container input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.btn-verify {
+    background: #3498db;
+    color: white;
+    font-size: 1em;
+    padding: 12px 25px;
+    width: auto;
+}
+
+.btn-verify:hover {
+    background: #2980b9;
+}
+
+/* PANEL DE EXPORTACIÓN */
+.export-section {
+    background: #ecf0f1;
+    padding: 30px;
+    border-top: 3px solid #27ae60;
+}
+
+.export-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn-export {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-export:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+}
+
+.info-text {
+    text-align: center;
+    margin-top: 15px;
+    color: #7f8c8d;
+    font-weight: 600;
+}
+
+/* MENSAJES */
+.mensaje {
+    padding: 15px;
+    margin: 20px 30px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}
+
+.mensaje.exito {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mensaje.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* UTILIDADES */
+.hidden {
+    display: none !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    
+    form, .export-section, .panel-admin {
+        padding: 20px;
+    }
+    
+    canvas#signaturePad {
+        height: 150px !important;
+    }
+    
+    .password-container {
+        flex-direction: column;
+    }
+}
